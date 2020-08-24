@@ -93,8 +93,8 @@
                                   <label>
                                     <input type="checkbox" <?php if($is_admin==1){echo "checked"; } ?> name="is_admin"> Administrador
                                   </label>
-                                </div>
-                                -->
+                                </div> -->
+                                
                                 <input type="hidden" name="idusuario" value="<?php echo $idusuario ?>">
                             </div>
                             <!-- /.box-body -->

@@ -60,7 +60,7 @@
                                     <th>Contraseña</th>
                                     <th>Nombre de Usuario</th>
                                     <th>Puesto</th>
-                                    <!-- <th>ID Puesto</th> -->
+                        <!--            <th>ID Puesto</th>      -->
                                     <th>Foto</th>
                                     <th>Acciones</th>
                                 </tr>
@@ -75,10 +75,10 @@
                                     <td><?php echo $user['contrasena'] ?></td>
                                     <td><?php echo $user['nombreusuario'] ?></td>
                                     <td><?php echo $user['nombrepuesto'] ?></td>
-                            <!--        <td><?php echo $user['idpuesto'] ?></td>  -->
+                                    <!-- <td><?php echo $user['idpuesto'] ?></td>  --->
                                     <td> <?php echo "<img src='images/profiles/".$user['usuario'].".jpg' width='80'>"?></td>  
                                     <td style="text-align: center">
-                                        
+
                                         <!-- Split button -->
                                         <div class="btn-group">
                                             <button type="button" class="btn btn-default">Acción</button>
