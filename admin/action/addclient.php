@@ -1,28 +1,28 @@
 <?php	
 	session_start();
 
-	if (empty($_POST['ruc'])) {
-           $errors[] = "RUC vacío";
+	if (empty($_POST['rfccliente'])) {
+           $errors[] = "vacío";
         } else if (
-			!empty($_POST['ruc']) 
+			!empty($_POST['rfccliente']) 
 		){
 
 		include "../config/config.php";//Contiene funcion que conecta a la base de datos
 
-		$empresa=mysqli_real_escape_string($con,(strip_tags($_POST["empresa"],ENT_QUOTES)));
-		$encargado=mysqli_real_escape_string($con,(strip_tags($_POST["encargado"],ENT_QUOTES)));
-		$email=mysqli_real_escape_string($con,(strip_tags($_POST["email"],ENT_QUOTES)));
-		$ruc=mysqli_real_escape_string($con,(strip_tags($_POST["ruc"],ENT_QUOTES)));
-		$created_at=date("Y-m-d H:i:s");
+		$rfccliente=mysqli_real_escape_string($con,(strip_tags($_POST["rfccliente"],ENT_QUOTES)));
+		$nombrecliente=mysqli_real_escape_string($con,(strip_tags($_POST["nombrecliente"],ENT_QUOTES)));
+		$contactocliente=mysqli_real_escape_string($con,(strip_tags($_POST["contactocliente"],ENT_QUOTES)));
+		$correocliente=mysqli_real_escape_string($con,(strip_tags($_POST["correocliente"],ENT_QUOTES)));
+		$telefonocliente=mysqli_real_escape_string($con,(strip_tags($_POST["telefonocliente"],ENT_QUOTES)));
+		//$created_at=date("Y-m-d H:i:s");
 		//$user_id=$_SESSION['user_id'];
 
-			$clientes=mysqli_query($con, "select * from clientes where ruc=$ruc");
-			if (mysqli_num_rows($clientes)>0) {
-				$errors []= "El Ruc Ya existe.";
-				
-			}else{
+			$cliente=mysqli_query($con, "select * from cliente where rfccliente='$rfccliente'");
+			if (mysqli_num_rows($cliente)>0) {
+				$errors []= "El RFC ya existe.";
+				 }else{
 
-			$sql="INSERT INTO clientes (business, fullname, email, ruc, created_at) VALUES (\"$empresa\", \"$encargado\", \"$email\", \"$ruc\", \"$created_at\")";
+			$sql="INSERT INTO cliente (nombrecliente, contactocliente, correocliente, rfccliente, telefonocliente) VALUES (\"$nombrecliente\", \"$contactocliente\", \"$correocliente\", \"$rfccliente\", \"$telefonocliente\")";
 			$query_new_insert = mysqli_query($con,$sql);
 				if ($query_new_insert){
 					$messages[] = "El cliente ha sido ingresado satisfactoriamente.";
