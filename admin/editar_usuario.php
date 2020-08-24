@@ -88,16 +88,20 @@
                                     ?>  
                                   </select>
                                 </div>
+                                <!--
                                 <div class="checkbox">
                                   <label>
                                     <input type="checkbox" <?php if($is_admin==1){echo "checked"; } ?> name="is_admin"> Administrador
                                   </label>
                                 </div>
+                                -->
                                 <input type="hidden" name="idusuario" value="<?php echo $idusuario ?>">
                             </div>
                             <!-- /.box-body -->
                             <div class="box-footer">
+                                <p align="right">
                                 <button type="submit" id="save_data" class="btn btn-success">Actualizar</button>
+                                </p>
                             </div>
                         </form>
                     </div><!-- /.box -->

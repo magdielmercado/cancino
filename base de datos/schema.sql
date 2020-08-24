@@ -99,8 +99,8 @@ CREATE TABLE `configuration` (
 --
 
 INSERT INTO `configuration` (`id`, `label`, `name`, `val`, `cfg_id`) VALUES
-(1, 'Nombre del Sitio Web', 'website', 'Ticketly PRO', 1),
-(2, 'Correo Electronico', 'email', 'waptoing7@gmail.com', 1),
+(1, 'Nombre del Sitio Web', 'website', 'Fiscal 1.0', 1),
+(2, 'Correo Electronico', 'email', 'jontiveros490@gmail.com', 1),
 (3, 'URL Base', 'url_base', 'http://localhost/project/abisoft/ticketly-pro/', 1),
 (4, 'Favicon', 'favicon', 'favicon.png', 1);
 
