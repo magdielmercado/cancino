@@ -1,34 +1,41 @@
 <?php
-	if (empty($_POST['mod_id'])) {
+	if (empty($_POST['rfccliente'])) {
            $errors[] = "ID vacío";
-        }else if (empty($_POST['ruc'])) {
+        }else if (empty($_POST['nombrecliente'])) {
            $errors[] = "Nombre vacío";
         } else if (
-			!empty($_POST['ruc'])
+			!empty($_POST['rfccliente'])
 		){
 
 		include "../config/config.php";//Contiene funcion que conecta a la base de datos
 
-		$empresa=mysqli_real_escape_string($con,(strip_tags($_POST["empresa"],ENT_QUOTES)));
-		$encargado=mysqli_real_escape_string($con,(strip_tags($_POST["encargado"],ENT_QUOTES)));
-		$email=mysqli_real_escape_string($con,(strip_tags($_POST["email"],ENT_QUOTES)));
-		$ruc=mysqli_real_escape_string($con,(strip_tags($_POST["ruc"],ENT_QUOTES)));
-		$id=intval($_POST['mod_id']);
+		$rfccliente=mysqli_real_escape_string($con,(strip_tags($_POST["rfccliente"],ENT_QUOTES)));
+		$nombrecliente=mysqli_real_escape_string($con,(strip_tags($_POST["nombrecliente"],ENT_QUOTES)));
+		$contactocliente=mysqli_real_escape_string($con,(strip_tags($_POST["contactocliente"],ENT_QUOTES)));
+		$telefonocliente=mysqli_real_escape_string($con,(strip_tags($_POST["telefonocliente"],ENT_QUOTES)));
+		$correocliente=mysqli_real_escape_string($con,(strip_tags($_POST["correocliente"],ENT_QUOTES)));
+		//$id=intval($_POST['mod_id']);
 
 
-		$clientes=mysqli_query($con, "select * from clientes where ruc=$ruc");
+		//$cliente=mysqli_query($con, "select * from cliente where rfccliente=$rfccliente");
 			//if (mysqli_num_rows($clientes)>0) {
 			//	$errors []= "El Ruc Ya Existe.";
 			//	
 			//}else{
-				$sql="UPDATE clientes SET business=\"$empresa\",fullname=\"$encargado\",email=\"$email\",ruc=\"$ruc\" WHERE id=$id";
+				$sql="UPDATE cliente 
+				         SET nombrecliente =\"$nombrecliente\"
+				           , contactocliente=\"$contactocliente\"
+				           , telefonocliente=\"$telefonocliente\"
+				           , correocliente=\"$correocliente\" 
+				      WHERE rfccliente='$rfccliente'";
 				$query_update = mysqli_query($con,$sql);
 					if ($query_update){
 						$messages[] = "El cliente ha sido actualizado satisfactoriamente.";
 							//sleep(1);
 							print("<script>window.location='./clientes.php'</script>");
 					} else{
-						$errors []= "Lo siento algo ha salido mal intenta nuevamente.".mysqli_error($con);
+						$errors[]=$sql;
+						//$errors []= "Lo siento algo ha salido mal intenta nuevamente.".mysqli_error($con);
 					}
 			//}		
 		} else {

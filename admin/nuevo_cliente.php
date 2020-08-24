@@ -38,20 +38,24 @@
                         <form role="form" method="post" name="add" id="add">
                             <div class="box-body">
                                 <div class="form-group">
-                                  <label for="empresa">Empresa: </label>
-                                  <input type="text" name="empresa" class="form-control" id="empresa" placeholder="Empresa" required>
+                                  <label for="rfccliente">RFC cliente: </label>
+                                  <input type="text" name="rfccliente" class="form-control" id="rfccliente" placeholder="RFC cliente" required>
                                 </div>
                                 <div class="form-group">
-                                  <label for="encargado">Encargado: </label>
-                                  <input type="text" name="encargado" class="form-control" id="encargado" placeholder="Encargado" required>
+                                  <label for="nombrecliente">Nombre de cliente: </label>
+                                  <input type="text" name="nombrecliente" class="form-control" id="nombrecliente" placeholder="Nombre de cliente" required>
+                                </div>
+                                   <div class="form-group">
+                                  <label for="contactocliente">Contacto de cliente: </label>
+                                  <input type="text" name="contactocliente" class="form-control" id="contactocliente" placeholder="Contacto de cliente" required>
+                                </div>
+                                   <div class="form-group">
+                                  <label for="telefonocliente">Telefono cliente: </label>
+                                  <input type="text" name="telefonocliente" class="form-control" id="telefonocliente" placeholder="Telefono de cliente" required>
                                 </div>
                                 <div class="form-group">
-                                  <label for="email">E-mail: </label>
-                                  <input type="email" name="email" class="form-control" id="email" placeholder="Correo Electrónico" required>
-                                </div>
-                                <div class="form-group">
-                                  <label for="ruc">RUC: </label>
-                                  <input type="text" name="ruc" class="form-control" id="ruc" placeholder="RUC" required maxlength="11">
+                                  <label for="correocliente">Correo de cliente: </label>
+                                  <input type="email" name="correocliente" class="form-control" id="correocliente" placeholder="Correo del cliente" required>
                                 </div>
                             </div>
                             <!-- /.box-body -->

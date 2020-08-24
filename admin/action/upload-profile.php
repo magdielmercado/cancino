@@ -2,7 +2,7 @@
     
     session_start();
 
-    $id=$_SESSION['admin_id'];
+    $idusuario=$_SESSION['admin_id'];
 
     include "../config/config.php";
 
@@ -33,8 +33,13 @@
         }
         else
         {
-            $src = $carpeta.$nombre;
-           @move_uploaded_file($ruta_provisional, $src);
+           $src = $carpeta.$nombre;
+           $sql = "select * from usuario where idusuario = $idusuario;";
+           $query = mysqli_query($con, $sql);
+           $registro = mysqli_fetch_array($query);
+
+           $filename = $registro['usuario']."jpg";
+           @move_uploaded_file($filename, $src);
 
            $query=mysqli_query($con, "UPDATE usuario set fotousuario=\"$nombre\" where idusuario=$idusuario");
            if($query){

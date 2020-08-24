@@ -4,21 +4,23 @@
     include "header.php";
     include "sidebar.php";
 
-    $id=intval($_GET['id']);
+    $rfccliente=intval($_GET['rfccliente']);
 
-    if (isset($_GET['id']) && !empty($_GET['id'])){
-        $id=$_GET["id"];
+    if (isset($_GET['rfccliente']) && !empty($_GET['rfccliente'])){
+        $id=$_GET["rfccliente"];
     } else {
         header("Location: clientes.php");  
     }
 
-    $sql=mysqli_query($con, "select * from clientes where id=$id");
+    $sql=mysqli_query($con, "select * from cliente where rfccliente=$rfccliente");
     $rows=mysqli_fetch_array($sql);
-        $id=$rows['id'];
-        $business=$rows['business'];
-        $fullname=$rows['fullname'];
-        $email=$rows['email'];
-        $ruc=$rows['ruc'];
+        $rfccliente=$rows['rfccliente'];
+        $nombrecliente=$rows['nombrecliente'];
+        $contactocliente=$rows['contactocliente'];
+        $telefonocliente=$rows['telefonocliente'];
+        $correocliente=$rows['correocliente'];
+    
+     
     
     
     if($is_admin!=1){
@@ -55,22 +57,26 @@
                         <form role="form" method="post" name="upd" id="upd">
                             <div class="box-body">
                                 <div class="form-group">
-                                  <label for="empresa">Empresa:</label>
-                                  <input type="text" name="empresa" class="form-control" id="empresa" placeholder="Empresa" required value="<?php echo $business ?>">
+                                  <label for="Empresa">RFC Cliente:</label>
+                                  <input type="text" name="rfccliente" class="form-control" id="rfccliente" placeholder="RFC cliente" required value="<?php echo $rfccliente ?>">
                                 </div>
                                 <div class="form-group">
-                                  <label for="encargado">Encargado:</label>
-                                  <input type="text" name="encargado" class="form-control" id="encargado" placeholder="Encargado" required value="<?php echo $fullname ?>">
+                                  <label for="encargado">Nombre  del cliente:</label>
+                                  <input type="text" name="nombrecliente" class="form-control" id="nombrecliente" placeholder="Nombre del cliente" required value="<?php echo $nombrecliente ?>">
+                                </div>
+                                 <div class="form-group">
+                                  <label for="telefono">Telefono del cliente:</label>
+                                  <input type="text" name="telefonocliente" class="form-control" id="telefonocliente" placeholder="Telefono de cliente" required value="<?php echo $telefonocliente ?>">
                                 </div>
                                 <div class="form-group">
-                                  <label for="email">E-mail:</label>
-                                  <input type="email" name="email" class="form-control" id="email" placeholder="E-mail" value="<?php echo $email ?>" required>
+                                  <label for="email">Correo de cliente:</label>
+                                  <input type="email" name="correocliente" class="form-control" id="correocliente" placeholder="E-mail" value="<?php echo $correocliente ?>" required>
                                 </div>
-                                <div class="form-group">
-                                  <label for="ruc">Ruc</label>
-                                  <input type="text" name="ruc" class="form-control" id="ruc" placeholder="Ruc" value="<?php echo $ruc ?>" required>
+                                 <div class="form-group">
+                                  <label for="ruc">Contacto cliente</label>
+                                  <input type="text" name="contactocliente" class="form-control" id="contactocliente" placeholder="Contacto cliente" value="<?php echo $contactocliente ?>" required>
                                 </div>
-                                <input type="hidden" name="mod_id" value="<?php echo $id ?>">
+                                <input type="hidden" name="mod_id" value="<?php echo $rfccliente ?>">
                             </div>
                             <!-- /.box-body -->
                             <div class="box-footer">

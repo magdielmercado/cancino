@@ -77,7 +77,11 @@ CREATE TABLE cliente(
 
 
 INSERT INTO cliente(rfccliente,nombrecliente,contactocliente,telefonocliente,correocliente) values
-('HIAA0811871T4','outsorsing','Pedro','9212667426','hector.ivan.alvarado@pemex');  
+('HIAA0811871T4','outsorsing','Pedro','9212667426','hector.ivan.alvarado@pemex'),
+('HIAA0811871T5','outsorsing','hector','9212667426','hector.ivan.alvarado@pemex'),  
+('HIAA0811871T6','outsorsing','juan','9212667426','hector.ivan.alvarado@pemex'),  
+('HIAA0811871T7','outsorsing','mag','9212667426','hector.ivan.alvarado@pemex'),  
+('HIAA0811871T8','outsorsing','jorge','9212667426','hector.ivan.alvarado@pemex');    
 --
 -- Estructura de tabla para la tabla `configuration`
 --
@@ -198,12 +202,12 @@ CREATE TABLE usuario(
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
-INSERT INTO `usuario` ( `usuario`, `contrasena`, `nombreusuario`, `idpuesto`) VALUES
-('admin','90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', 'admin',1),
-('superh','90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', 'hector',1),
-('jorge','90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', 'jorge',2),
-('mag','90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', 'mag',3),
-('edgar','90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', 'admin',2);
+INSERT INTO `usuario` ( `usuario`, `contrasena`, `nombreusuario`, `idpuesto`,`fotousuario`) VALUES
+('admin','90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', 'admin',1,'admin.jpg'),
+('superh','90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', 'hector',1,'superh.jpg'),
+('jorge','90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', 'jorge',2,'jorge.jpg'),
+('mag','90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', 'mag',3,'mag.jpg'),
+('edgar','90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', 'admin',2,'edgar.jpg');
 
 UPDATE usuario SET fotousuario = "superh.jpg" WHERE idusuario = 2;
 
